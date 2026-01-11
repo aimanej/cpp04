@@ -35,3 +35,8 @@ const std::string WrongCat::getType() const
 {
     return _type;
 }
+
+WrongCat::~WrongCat()
+{
+    std::cout << "WrongCat Deconstructor called" << std::endl;
+}

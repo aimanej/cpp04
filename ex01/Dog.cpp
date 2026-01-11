@@ -4,16 +4,19 @@ Dog::Dog() : Animal()
 {
     std::cout << "Dog default constructor called" << std::endl;
     _type = "DOG";
+    _brn = new Brain();
 }
 
 Dog::Dog(const std::string tp) : Animal(tp)
 {
     std::cout << "Dog Param  constructor called" << std::endl;
+    _brn = new Brain();
 }
 
 Dog::Dog(const Dog &obj) : Animal(obj)
 {
     std::cout << "Dog copy constructor called" << std::endl;
+    _brn = new Brain(*obj._brn);
 }
 
 Dog &Dog::operator=(const Dog &obj)
@@ -22,6 +25,9 @@ Dog &Dog::operator=(const Dog &obj)
     if(this != &obj)
     {
         Animal::operator=(obj);
+        delete _brn;
+
+        _brn = new Brain(*obj._brn);
     }
     return *this;
 }
@@ -39,4 +45,5 @@ const std::string Dog::getType() const
 Dog::~Dog()
 {
     std::cout << "Dog Deconstructor called" << std::endl;
+    delete _brn;
 }

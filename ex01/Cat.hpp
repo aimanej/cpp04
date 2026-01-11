@@ -3,9 +3,12 @@
 
 #include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
+private:
+    Brain *_brn;
 public:
     Cat();
     Cat(const std::string name);

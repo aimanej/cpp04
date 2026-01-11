@@ -13,6 +13,7 @@ public:
     WrongCat &operator=(const WrongCat &obj);
     void makeSound() const;
     const std::string getType() const;
+    ~WrongCat();
 };
 
 #endif
